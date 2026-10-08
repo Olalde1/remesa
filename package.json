@@ -1,0 +1,148 @@
+{
+  "name": "remesa",
+  "version": "0.1.0",
+  "description": "TypeScript toolkit for moving money into Mexico: CLABE, card and phone payout validation, SPEI field helpers, CEP lookups, webhook verification and transparent USD/USDC → MXN remittance pricing.",
+  "keywords": [
+    "mexico",
+    "spei",
+    "clabe",
+    "cep",
+    "banxico",
+    "remittance",
+    "remesas",
+    "payments",
+    "fintech",
+    "usdc",
+    "webhooks"
+  ],
+  "author": "Luis Olalde <luisolalde86@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/Olalde1/remesa#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Olalde1/remesa.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Olalde1/remesa/issues"
+  },
+  "type": "module",
+  "sideEffects": false,
+  "engines": {
+    "node": ">=20"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./money": {
+      "import": {
+        "types": "./dist/money.d.ts",
+        "default": "./dist/money.js"
+      },
+      "require": {
+        "types": "./dist/money.d.cts",
+        "default": "./dist/money.cjs"
+      }
+    },
+    "./clabe": {
+      "import": {
+        "types": "./dist/clabe.d.ts",
+        "default": "./dist/clabe.js"
+      },
+      "require": {
+        "types": "./dist/clabe.d.cts",
+        "default": "./dist/clabe.cjs"
+      }
+    },
+    "./banks": {
+      "import": {
+        "types": "./dist/banks.d.ts",
+        "default": "./dist/banks.js"
+      },
+      "require": {
+        "types": "./dist/banks.d.cts",
+        "default": "./dist/banks.cjs"
+      }
+    },
+    "./spei": {
+      "import": {
+        "types": "./dist/spei.d.ts",
+        "default": "./dist/spei.js"
+      },
+      "require": {
+        "types": "./dist/spei.d.cts",
+        "default": "./dist/spei.cjs"
+      }
+    },
+    "./cep": {
+      "import": {
+        "types": "./dist/cep.d.ts",
+        "default": "./dist/cep.js"
+      },
+      "require": {
+        "types": "./dist/cep.d.cts",
+        "default": "./dist/cep.cjs"
+      }
+    },
+    "./webhooks": {
+      "import": {
+        "types": "./dist/webhooks.d.ts",
+        "default": "./dist/webhooks.js"
+      },
+      "require": {
+        "types": "./dist/webhooks.d.cts",
+        "default": "./dist/webhooks.cjs"
+      }
+    },
+    "./quotes": {
+      "import": {
+        "types": "./dist/quotes.d.ts",
+        "default": "./dist/quotes.js"
+      },
+      "require": {
+        "types": "./dist/quotes.d.cts",
+        "default": "./dist/quotes.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md",
+    "SOURCES.md"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "lint": "biome check .",
+    "format": "biome check --write .",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "examples": "node examples/validate-account.mjs && node examples/price-remittance.mjs && node examples/cep-query.mjs && node examples/webhook-server.mjs --self-test",
+    "prepublishOnly": "npm run lint && npm run typecheck && npm run test && npm run build"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.5.15",
+    "@types/node": "^20.19.0",
+    "@vitest/coverage-v8": "^4.0.0",
+    "tsup": "^8.5.1",
+    "typescript": "~5.9.0",
+    "vitest": "^4.0.0"
+  }
+}
