@@ -1,7 +1,7 @@
 // Prepare the data a customer needs to download their CEP from Banxico.
 // Run after `npm run build`: node examples/cep-query.mjs
-import { buildCepQuery } from "remesa/cep";
-import { money } from "remesa/money";
+import { buildCepQuery } from "@olalde/remesa/cep";
+import { money } from "@olalde/remesa/money";
 
 const query = buildCepQuery({
   date: "2026-10-08",

@@ -4,6 +4,12 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses
 [Semantic Versioning](https://semver.org/).
 
+## [0.1.1] - 2026-10-08
+
+### Changed
+
+- Published to npm as `@olalde/remesa` (the unscoped name `remesa` was rejected by the registry as too similar to an existing package).
+
 ## [0.1.0] - 2026-10-08
 
 ### Added
@@ -17,4 +23,5 @@ All notable changes to this project are documented here. The format follows
 - `remesa/quotes`: `priceRemittance` (fee, FX margin and total cost %, World Bank RPW-style) and `parseRate`.
 - ESM + CJS builds with type definitions, Vitest suite, GitHub Actions CI, and runnable examples.
 
+[0.1.1]: https://github.com/Olalde1/remesa/releases/tag/v0.1.1
 [0.1.0]: https://github.com/Olalde1/remesa/releases/tag/v0.1.0

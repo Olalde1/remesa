@@ -1,7 +1,7 @@
 // Show a sender exactly what a USD → MXN transfer costs.
 // Run after `npm run build`: node examples/price-remittance.mjs
-import { formatMoney, money } from "remesa/money";
-import { priceRemittance } from "remesa/quotes";
+import { formatMoney, money } from "@olalde/remesa/money";
+import { priceRemittance } from "@olalde/remesa/quotes";
 
 const quote = priceRemittance({
   send: money("300.00", "USD"),

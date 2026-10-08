@@ -3,7 +3,7 @@
 //   WEBHOOK_SECRET=dev_secret node examples/webhook-server.mjs
 //   node examples/webhook-server.mjs --self-test   (starts, sends a signed request, exits)
 import { createServer } from "node:http";
-import { signWebhook, verifyWebhook } from "remesa/webhooks";
+import { signWebhook, verifyWebhook } from "@olalde/remesa/webhooks";
 
 const secret = process.env.WEBHOOK_SECRET ?? "dev_secret";
 

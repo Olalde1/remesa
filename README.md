@@ -3,11 +3,11 @@
 **A TypeScript toolkit for moving money into Mexico: validate CLABE, card, and phone payout accounts, build SPEI-ready transfers, verify webhooks, and price USD/USDC → MXN remittances transparently.**
 
 <!-- Badges: replace placeholders once CI and npm are live -->
-[![npm version](https://img.shields.io/npm/v/remesa.svg)](https://www.npmjs.com/package/remesa)
+[![npm version](https://img.shields.io/npm/v/@olalde/remesa.svg)](https://www.npmjs.com/package/@olalde/remesa)
 [![CI](https://github.com/Olalde1/remesa/actions/workflows/ci.yml/badge.svg)](https://github.com/Olalde1/remesa/actions/workflows/ci.yml)
 [![coverage](https://img.shields.io/badge/coverage-TBD-lightgrey.svg)](#)
 [![bundle size](https://img.shields.io/bundlephobia/minzip/remesa)](https://bundlephobia.com/package/remesa)
-[![types](https://img.shields.io/npm/types/remesa)](https://www.npmjs.com/package/remesa)
+[![types](https://img.shields.io/npm/types/@olalde/remesa)](https://www.npmjs.com/package/@olalde/remesa)
 [![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 
 > **Status: pre-1.0.** The API may change between minor versions until `v1.0.0`. Feedback and issues are very welcome.
@@ -41,11 +41,11 @@ Mexico is one of the largest remittance-receiving countries in the world, and al
 ## Install
 
 ```bash
-npm install remesa
+npm install @olalde/remesa
 # or
-pnpm add remesa
+pnpm add @olalde/remesa
 # or
-yarn add remesa
+yarn add @olalde/remesa
 ```
 
 Requires Node.js 20+. Ships ESM and CJS with full type definitions, and every module is also available as a subpath import (`remesa/clabe`, `remesa/spei`, …). All modules except `remesa/webhooks` are plain TypeScript with no Node-specific APIs. `remesa/webhooks` uses `node:crypto`, which Node, Deno and Bun support.
@@ -55,7 +55,7 @@ Requires Node.js 20+. Ships ESM and CJS with full type definitions, and every mo
 ### Validate and parse a CLABE
 
 ```ts
-import { validateClabe, generateClabe } from 'remesa/clabe';
+import { validateClabe, generateClabe } from '@olalde/remesa/clabe';
 
 const result = validateClabe('002 180 00123456789 6'); // spaces and hyphens are ignored
 
@@ -78,7 +78,7 @@ generateClabe({ bankCode: '002', plaza: '180', account: '00123456789' });
 ### Look up a bank
 
 ```ts
-import { findBankByCode, findBankByClabe } from 'remesa/banks';
+import { findBankByCode, findBankByClabe } from '@olalde/remesa/banks';
 
 findBankByCode('012');
 // → { clabeCode: '012', speiCode: '40012', name: 'BBVA MEXICO', ... }
@@ -96,7 +96,7 @@ import {
   sanitizeConcept,
   validateNumericReference,
   createTrackingKey,
-} from 'remesa/spei';
+} from '@olalde/remesa/spei';
 
 parseBeneficiaryAccount('4111 1111 1111 1111');
 // → { ok: true, value: { type: 'debit_card', number: '4111111111111111' } }
@@ -121,8 +121,8 @@ createTrackingKey({ prefix: 'RMS' }); // e.g. 'RMS20261008K3F9Q2ZD7A' (≤ 30 ch
 ### Price a remittance transparently
 
 ```ts
-import { money, formatMoney } from 'remesa/money';
-import { priceRemittance } from 'remesa/quotes';
+import { money, formatMoney } from '@olalde/remesa/money';
+import { priceRemittance } from '@olalde/remesa/quotes';
 
 const quote = priceRemittance({
   send: money('300.00', 'USD'),
@@ -154,8 +154,8 @@ priceRemittance({
 ### Build a CEP lookup
 
 ```ts
-import { buildCepQuery } from 'remesa/cep';
-import { money } from 'remesa/money';
+import { buildCepQuery } from '@olalde/remesa/cep';
+import { money } from '@olalde/remesa/money';
 
 const query = buildCepQuery({
   date: '2026-10-08',
@@ -182,7 +182,7 @@ if (query.ok) {
 ### Verify a webhook
 
 ```ts
-import { verifyWebhook } from 'remesa/webhooks';
+import { verifyWebhook } from '@olalde/remesa/webhooks';
 
 const result = verifyWebhook({
   payload: rawBody,                          // the raw request body string, not parsed JSON

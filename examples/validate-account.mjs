@@ -1,6 +1,6 @@
 // Validate whatever a user typed as their payout account.
 // Run after `npm run build`: node examples/validate-account.mjs
-import { parseBeneficiaryAccount } from "remesa/spei";
+import { parseBeneficiaryAccount } from "@olalde/remesa/spei";
 
 const inputs = ["002 180 00123456789 6", "4111 1111 1111 1111", "+52 55 1234 5678", "12345"];
 

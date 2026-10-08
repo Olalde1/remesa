@@ -1,6 +1,6 @@
 {
-  "name": "remesa",
-  "version": "0.1.0",
+  "name": "@olalde/remesa",
+  "version": "0.1.1",
   "description": "TypeScript toolkit for moving money into Mexico: CLABE, card and phone payout validation, SPEI field helpers, CEP lookups, webhook verification and transparent USD/USDC → MXN remittance pricing.",
   "keywords": [
     "mexico",
